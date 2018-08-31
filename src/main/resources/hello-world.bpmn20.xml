@@ -1,0 +1,14 @@
+
+<definitions id="definitions" targetNamespace="http://activiti.org/bpmn20" xmlns:activiti="http://activiti.org/bpmn" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+    <process id="test" name="Test process">
+        <startEvent id='theStart' />
+        <sequenceFlow id='flow1' sourceRef='theStart' targetRef='scriptTask' />
+        <scriptTask id="scriptTask" scriptFormat="groovy">
+            <script>
+                println 'Hello World!'          
+            </script>
+        </scriptTask>
+        <sequenceFlow id='flow2' sourceRef='scriptTask' targetRef='theEnd' />
+        <endEvent id='theEnd' />
+    </process>
+</definitions>
