@@ -5,7 +5,9 @@
         <sequenceFlow id='flow1' sourceRef='theStart' targetRef='scriptTask' />
         <scriptTask id="scriptTask" scriptFormat="groovy">
             <script>
-                println 'Hello World!'          
+                println 'Hello World!'
+                def greet=["Haku", "na", "mata", "ta"]
+                greet.forEach{println it}
             </script>
         </scriptTask>
         <sequenceFlow id='flow2' sourceRef='scriptTask' targetRef='theEnd' />
