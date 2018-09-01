@@ -1,7 +1,24 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'idea'
+    id "com.github.tkruse.groovysh" version "1.0.8"
+}
+
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'groovy'
 apply plugin: 'idea'
+
+repositories {
+    jcenter() // or maven central...
+}
+
 
 sourceCompatibility = 1.7
 version = '1.0'
