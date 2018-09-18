@@ -1,16 +1,38 @@
-
-<definitions id="definitions" targetNamespace="http://activiti.org/bpmn20" xmlns:activiti="http://activiti.org/bpmn" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
-    <process id="test" name="Test process">
-        <startEvent id='theStart' />
-        <sequenceFlow id='flow1' sourceRef='theStart' targetRef='scriptTask' />
-        <scriptTask id="scriptTask" scriptFormat="groovy">
-            <script>
-                println 'Hello World!'
-                def greet=["Haku", "na", "mata", "ta"]
-                greet.forEach{println it}
-            </script>
-        </scriptTask>
-        <sequenceFlow id='flow2' sourceRef='scriptTask' targetRef='theEnd' />
-        <endEvent id='theEnd' />
-    </process>
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="process" isExecutable="true">
+    <startEvent id="sid-C3462493-61C7-4AA6-833C-ABE7C02A8D99" name="STart"></startEvent>
+    <sequenceFlow id="sid-0650FD5E-AE05-48BB-9E0F-92B8EA76E556" sourceRef="sid-C3462493-61C7-4AA6-833C-ABE7C02A8D99" targetRef="print-hello"></sequenceFlow>
+    <endEvent id="sid-2488A8F6-3C5E-47D6-B89B-9FFE9C5CB454" name="Emd"></endEvent>
+    <sequenceFlow id="sid-74D82526-F053-4B19-A58B-1B51F32B1C4E" sourceRef="print-hello" targetRef="sid-2488A8F6-3C5E-47D6-B89B-9FFE9C5CB454"></sequenceFlow>
+    <scriptTask id="print-hello" name="hello" scriptFormat="groovy" activiti:autoStoreVariables="false">
+      <script><![CDATA[def name="PK"
+println "${name} Step 1"
+      sleep(3000)
+      println "${name} Step 2"
+      sleep(3000)
+      println "${name} Step 3"]]></script>
+    </scriptTask>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_process">
+    <bpmndi:BPMNPlane bpmnElement="process" id="BPMNPlane_process">
+      <bpmndi:BPMNShape bpmnElement="sid-C3462493-61C7-4AA6-833C-ABE7C02A8D99" id="BPMNShape_sid-C3462493-61C7-4AA6-833C-ABE7C02A8D99">
+        <omgdc:Bounds height="30.0" width="30.0" x="165.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-2488A8F6-3C5E-47D6-B89B-9FFE9C5CB454" id="BPMNShape_sid-2488A8F6-3C5E-47D6-B89B-9FFE9C5CB454">
+        <omgdc:Bounds height="28.0" width="28.0" x="126.0" y="540.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="print-hello" id="BPMNShape_print-hello">
+        <omgdc:Bounds height="80.0" width="100.0" x="75.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-74D82526-F053-4B19-A58B-1B51F32B1C4E" id="BPMNEdge_sid-74D82526-F053-4B19-A58B-1B51F32B1C4E">
+        <omgdi:waypoint x="126.79640718562874" y="260.0"></omgdi:waypoint>
+        <omgdi:waypoint x="139.37189059050453" y="540.0140971485677"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-0650FD5E-AE05-48BB-9E0F-92B8EA76E556" id="BPMNEdge_sid-0650FD5E-AE05-48BB-9E0F-92B8EA76E556">
+        <omgdi:waypoint x="175.50260104889406" y="59.309905753518834"></omgdi:waypoint>
+        <omgdi:waypoint x="137.57142857142856" y="180.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
 </definitions>
